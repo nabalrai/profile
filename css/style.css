@@ -1,0 +1,403 @@
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&display=swap");
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  font-size: 62.5%;
+  --cs-dark: #111111; /* black*/
+  --cs-grey: #2f2f2f; /* grey*/
+  --cs-white: #f6f6f6; /* white*/
+  --cs-gold: #ffcb74; /* yellow*/
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: var(--scroll-padding, 60px);
+}
+
+body {
+  font-family: "Open Sans", sans-serif;
+  font: size 1.6rem;
+  background-color: #f6f6f6;
+  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' height='100%25' width='100%25'%3E%3Cdefs%3E%3Cpattern id='doodad' width='18' height='18' viewBox='0 0 40 40' patternUnits='userSpaceOnUse' patternTransform='rotate(45)'%3E%3Crect width='100%25' height='100%25' fill='rgba(246, 246, 246,1)'/%3E%3Ccircle cx='0' cy='20' r='1.5' fill='rgba(47, 47, 47,1)'/%3E%3Ccircle cx='40' cy='20' r='1.5' fill='rgba(47, 47, 47,1)'/%3E%3Cpath d='m 18.5 18.5 h3 v3 h-3z' fill='rgba(255, 203, 116,1)'/%3E%3C/pattern%3E%3C/defs%3E%3Crect fill='url(%23doodad)' height='200%25' width='200%25'/%3E%3C/svg%3E ");
+  background-repeat: repeat;
+  background-size: cover;
+}
+
+header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 2000;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
+}
+nav {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  align-items: center;
+  padding: 20px;
+  background-color: var(--cs-grey);
+}
+.menu ul {
+  list-style: none;
+  display: flex;
+  gap: 4rem;
+}
+nav a {
+  font-size: 1.6rem;
+  font-weight: 700;
+  text-decoration: none;
+  color: var(--cs-white);
+}
+
+.menu ul li a:focus {
+  color: var(--cs-gold);
+  text-decoration: underline;
+  z-index: 1;
+}
+nav #toggle,
+nav label {
+  display: none;
+}
+/* navbar ends */
+
+/* main starts */
+section {
+  width: 100%;
+  height: 650px;
+}
+#about {
+  align-items: center;
+  margin-top: 60px;
+}
+#about,
+#skills,
+#contact{
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+}
+#about img {
+  padding-left: 1.6rem;
+  height: auto;
+  width: 410px;
+  border-radius: 50% 25%;
+  filter: drop-shadow(20px 20px 20px rgba(0, 0, 0, 0.4));
+}
+
+#about > .mobileview{
+  background-color: #f6f6f6;
+}
+/* bio of the profile */
+.bio {
+  color: var(--cs-grey);
+  font-weight: 600;
+  text-decoration: none;
+  padding-inline:10px;
+}
+.bio h2 {
+  font-size: 3rem;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
+  background-color: var(--cs-gold);
+  border-radius: 10px;
+  min-width: max-content;
+  max-width: 10em;
+  text-align: center;
+}
+.bio p {
+  font-size: 2em;
+  text-align: left;
+}
+/* skills card starts */
+.card {
+  place-self: center;
+  width: 80%;
+  width: max(370px, 70%);
+  background-color: var(--cs-white);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.card-hdr {
+  background-color: var(--cs-grey);
+  color: var(--cs-white);
+  padding: 20px;
+  text-align: center;
+  font-size: 1.8rem;
+}
+
+.body {
+  padding: 20px;
+}
+
+.skill {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.skill-name {
+  width: 120px;
+  font-size: 1.6rem;
+  font-weight: 600;
+  color:var(--cs-dark);
+}
+
+.skill-level {
+  width: 160px;
+  height: 10px;
+  background-color:#fff;
+  border-radius: 10px;
+  overflow: hidden;
+  margin-left: 20px;
+}
+
+.skill-percent {
+  background-color: var(--cs-gold);
+  height: 100%;
+  width: 0%;
+  animation: 5s ease-in-out forwards;
+}
+/*individual animation starts*/
+.skill-percent[style*="width: 90%"] {
+  animation-name: fill-90;
+}
+
+.skill-percent[style*="width: 71%"] {
+  animation-name: fill-71;
+}
+
+.skill-percent[style*="width: 61%"] {
+  animation-name: fill-61;
+}
+
+.skill-percent[style*="width: 45%"] {
+  animation-name: fill-45;
+}
+
+.skill-percent-number {
+  margin-left: 20px;
+  font-size: 1.6rem;
+  font-weight: 500;
+  color: var(--cs-dark);
+}
+/* individual animation ends */
+
+
+/* skill card ends */
+#skills > div {
+  place-self: center;
+
+}
+
+#skills div > img{
+  max-width: 100%;
+  padding-inline: 20px;
+  filter: drop-shadow(0px 0px 10px rgba(0, 0, 0, 0.5));
+}
+
+/* project section start */
+#projects{
+  display: grid;
+  align-items: stretch;
+  grid-template-columns: repeat(3, 1fr);
+  padding-inline: 30px;
+  gap: 20px;
+}
+.project-card{
+  display:flex;
+  flex-direction: column;
+  place-content: center;
+  gap: 10px;
+  max-width:100%;
+  height: auto;
+  background-color: var(--cs-gold);
+  border-radius: 20px;
+}
+.project-title{
+  background-color:#03c988;
+  text-align: center;
+  font-size: x-large;
+  color:var(--cs-white);
+  font-weight: 900;
+}
+
+.project-body{
+  text-align: left;
+  font-size: 1.6rem;
+  font-weight: 400;
+  padding-inline: 10px;
+
+}
+.project-link{
+  font-size: 1.6rem;
+  place-self: center;
+}
+
+.project-link a{
+  text-decoration: none;
+  font-size: 1.8rem;
+  font-weight: 500;
+  padding:10px 40px;
+  border-radius:30px ;
+  background-color:var(--cs-grey);
+  color: var(--cs-white);
+}
+/* contact section starts */
+#contact{
+  /* place-items: center; */
+}
+
+form{
+  display: flex;
+  background-color: var(--cs-white);
+  flex-direction: column;
+  place-self: center;
+  gap: 10px;
+  /* margin:0px 5px 0px 5px; */
+  padding: 20px;
+  border-radius: 30px;
+  width: 80%;
+  height: auto;
+  box-shadow:0px 0px 10px rgba(0, 0, 0, 0.5);
+}
+label{
+  font-size: 1.6rem;
+  font-weight:500;
+}
+
+input{
+  height:30px;
+}
+
+#message{
+  height: 150px;
+}
+#contact-form > button{
+  outline: transparent;
+  background-color: var(--cs-gold);
+  color:var(--cs-white);
+  align-self:end;
+  margin-top: 20px;
+  padding: 5px;
+  width:100px;
+  justify-self: center;
+}
+#contact-form > button:is(:hover){
+  background-color:var(--cs-grey);
+}
+#contact > .mobileview{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 10px;
+  place-content: center;
+}
+.mobileview > a{
+  font-size: 4.8rem;
+  font-weight: 500;
+  text-decoration: none;
+  border-radius: 5px;
+  padding: 20px;
+  background-color:var(--cs-gold);
+}
+.mobileview > a:hover{
+  background-color:var(--cs-dark);
+  color: red;
+}
+/*COMMENT media queries for mobileview */
+@media (max-width: 768px) {
+  nav .menu {
+    width: 100%;
+    height: 0;
+    overflow: hidden;
+  }
+  nav {
+    justify-content: space-between;
+  }
+  nav ul {
+    flex-direction: column;
+    align-items: center;
+    padding: 0.5rem 0;
+  }
+  nav label {
+    font-size: x-large;
+    display: inline-flex;
+    color: var(--cs-white);
+    cursor: pointer;
+  }
+  nav #toggle:checked ~ .menu {
+    height: 100%;
+  }
+  /* main starts */
+  #about,
+  #skills,
+  #projects
+   {
+    grid-template-columns: auto auto;
+    padding: 10px 10px 0px 0px;
+  }
+  .mobileview {
+    height: auto;
+    text-align: center;
+    grid-row: 2;
+    gap: 5px;
+  }
+
+  #projects,
+  #contact{
+    grid-template-rows: repeat(2, 1fr);
+  }
+  form,
+  #contact > .mobileview{
+    margin-top: 50px;
+    grid-column:1/span 2;
+  }
+  .project-body{
+    font-size: 1.2rem;
+  }
+
+}
+
+/* COMMENT:: key frames for the skill cards */
+@keyframes fill-90 {
+  0% {
+    width: 0;
+  }
+  100% {
+    width: 90%;
+  }
+}
+@keyframes fill-71 {
+  0% {
+    width: 0;
+  }
+  100% {
+    width: 71%;
+  }
+}
+
+@keyframes fill-61 {
+  0% {
+    width: 0;
+  }
+  100% {
+    width: 61%;
+  }
+}
+
+@keyframes fill-45 {
+  0% {
+    width: 0;
+  }
+  100% {
+    width: 45%;
+  }
+}
